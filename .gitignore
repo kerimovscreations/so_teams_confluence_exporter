@@ -1,0 +1,11 @@
+venv
+client_key.txt
+pat.txt
+image_urls.txt
+*/images/
+article-images/
+question-images/
+*.png
+*.json
+*.md
+.DS_Store
