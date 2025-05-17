@@ -2,10 +2,9 @@
 import requests
 import time
 import json
-from datetime import datetime
 
 # Configuration
-BASE_URL = "https://pashabank.stackenterprise.co/api/2.3"
+BASE_URL = "https://company.stackenterprise.co/api/2.3"
 CLIENT_KEY_PATH = "client_key.txt"
 JSON_OUTPUT_FILE = "stackoverflow_articles.json"
 PAGE_SIZE = 100  # Number of items to fetch per page

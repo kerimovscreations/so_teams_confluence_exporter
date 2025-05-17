@@ -23,14 +23,14 @@ def replace_image_urls(text):
 
     # Replace URLs in markdown image syntax: ![alt text](url)
     text = re.sub(
-        r'!\[(.*?)\]\(https://pashabank\.stackenterprise\.co/images/a/([^\s\)]+)\)',
+        r'!\[(.*?)\]\(https://company\.stackenterprise\.co/images/a/([^\s\)]+)\)',
         r'![\1](images/\2)',
         text
     )
 
     # Replace URLs in HTML image tags: <img src="url" ...>
     text = re.sub(
-        r'<img\s+([^>]*)src="https://pashabank\.stackenterprise\.co/images/a/([^\s"]+)"([^>]*)>',
+        r'<img\s+([^>]*)src="https://company\.stackenterprise\.co/images/a/([^\s"]+)"([^>]*)>',
         r'<img \1src="images/\2"\3>',
         text
     )
@@ -118,14 +118,14 @@ def write_to_markdown(articles_data):
             f.write("---\n\n")  # Add separator between articles
 
 def extract_image_urls(markdown_text):
-    """Extract image URLs from markdown text that start with https://pashabank.stackenterprise.co/images."""
+    """Extract image URLs from markdown text that start with https://company.stackenterprise.co/images."""
     if not markdown_text:
         return []
 
     # This regex pattern looks for markdown image syntax: ![alt text](url)
     # and also HTML image tags: <img src="url" ...>
-    markdown_pattern = r'!\[.*?\]\((https://pashabank\.stackenterprise\.co/images/[^\s\)]+)\)'
-    html_pattern = r'<img\s+[^>]*src="(https://pashabank\.stackenterprise\.co/images/[^\s"]+)"[^>]*>'
+    markdown_pattern = r'!\[.*?\]\((https://company\.stackenterprise\.co/images/[^\s\)]+)\)'
+    html_pattern = r'<img\s+[^>]*src="(https://company\.stackenterprise\.co/images/[^\s"]+)"[^>]*>'
 
     markdown_urls = re.findall(markdown_pattern, markdown_text)
     html_urls = re.findall(html_pattern, markdown_text)
@@ -133,7 +133,7 @@ def extract_image_urls(markdown_text):
     return markdown_urls + html_urls
 
 def process_articles_file():
-    """Process the articles JSON file and extract all images from Pashabank URLs."""
+    """Process the articles JSON file and extract all images from company URLs."""
     # Read the JSON file
     with open(JSON_FILE, 'r', encoding='utf-8') as f:
         articles = json.load(f)
@@ -155,7 +155,7 @@ def process_articles_file():
 
     # Remove duplicates
     unique_urls = list(set(all_urls))
-    print(f"Found {len(unique_urls)} unique image URLs from pashabank.stackenterprise.co/images")
+    print(f"Found {len(unique_urls)} unique image URLs from company.stackenterprise.co/images")
 
     # Store the image urls in a text file
     with open("image_urls.txt", 'w', encoding='utf-8') as f:

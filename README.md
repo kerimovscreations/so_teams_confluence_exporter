@@ -176,6 +176,30 @@ If you want to import the exported content to Confluence, you can use the script
    - `/confluence-import/article-import/pat.txt` for articles
    - `/confluence-import/question-import/pat.txt` for questions
 
+### Confluence Configuration
+
+The Confluence scripts use placeholder values that you need to replace with your actual Confluence details:
+
+1. Edit the configuration section at the top of the following files:
+   - `/confluence-import/article-import/confluence_importer.py`
+   - `/confluence-import/article-import/image_uploader.py`
+   - `/confluence-import/question-import/confluence_questions_importer.py`
+   - `/confluence-import/question-import/question_image_uploader.py`
+
+2. Replace the placeholder values with your actual Confluence details:
+   ```python
+   # Replace these values with your actual Confluence details
+   CONFLUENCE_BASE_URL = "YOUR_CONFLUENCE_URL"  # e.g., "https://yourcompany.atlassian.net/wiki"
+   PARENT_PAGE_ID = "YOUR_PARENT_PAGE_ID"  # ID of the parent page where content will be created
+   SPACE_KEY = "YOUR_SPACE_KEY"  # e.g., "TEAM" or "DOC"
+   EXTERNAL_IMAGE_DOMAIN = "YOUR_STACK_ENTERPRISE_DOMAIN"  # For image uploaders only
+   ```
+
+3. To find the `PARENT_PAGE_ID`:
+   - Open the Confluence page that will be the parent of your imported content
+   - Look at the URL, which should contain something like `/pages/viewpage.action?pageId=123456789`
+   - The number after `pageId=` is your `PARENT_PAGE_ID`
+
 ### Importing to Confluence
 
 1. For articles:
@@ -188,6 +212,17 @@ If you want to import the exported content to Confluence, you can use the script
    ```bash
    cd /path/to/so_teams_export/confluence-import/question-import/
    python confluence_questions_importer.py
+   ```
+
+3. For uploading images:
+   ```bash
+   # Upload article images
+   cd /path/to/so_teams_export/confluence-import/article-import/
+   python image_uploader.py
+
+   # Upload question images
+   cd /path/to/so_teams_export/confluence-import/question-import/
+   python question_image_uploader.py
    ```
 
 ## Troubleshooting

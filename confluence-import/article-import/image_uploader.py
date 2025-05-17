@@ -2,20 +2,18 @@
 import os
 import json
 import requests
-import base64
-import re
 from bs4 import BeautifulSoup
 from urllib.parse import urlparse
 from datetime import datetime
 
 # Configuration
-CONFLUENCE_BASE_URL = "https://confluence.pashabank.az"
-PARENT_PAGE_ID = "322175497"  # ID of "Stackoverflow Q+A" page
-SPACE_KEY = "DE"
-PAT_FILE_PATH = "confluence-import/pat.txt"
-IMAGES_FOLDER_PATH = "confluence-import/article-images"
-ARTICLES_FILE_PATH = "articles/stackoverflow_articles.json"
-EXTERNAL_IMAGE_DOMAIN = "pashabank.stackenterprise.co"  # Domain of external images
+CONFLUENCE_BASE_URL = "YOUR_CONFLUENCE_URL"  # e.g., "https://yourcompany.atlassian.net/wiki"
+PARENT_PAGE_ID = "YOUR_PARENT_PAGE_ID"  # ID of the parent page where articles will be created
+SPACE_KEY = "YOUR_SPACE_KEY"  # e.g., "TEAM" or "DOC"
+PAT_FILE_PATH = "pat.txt"
+IMAGES_FOLDER_PATH = "../article-images"
+ARTICLES_FILE_PATH = "../../articles/stackoverflow_articles.json"
+EXTERNAL_IMAGE_DOMAIN = "YOUR_STACK_ENTERPRISE_DOMAIN"  # Domain of external images
 
 def read_personal_access_token(file_path):
     """Read the personal access token from file."""

@@ -5,7 +5,7 @@ import json
 from datetime import datetime
 
 # Configuration
-BASE_URL = "https://pashabank.stackenterprise.co/api/2.3"
+BASE_URL = "https://company.stackenterprise.co/api/2.3"
 CLIENT_KEY_PATH = "client_key.txt"
 OUTPUT_FILE = "stackoverflow_export.md"
 PAGE_SIZE = 100  # Number of items to fetch per page

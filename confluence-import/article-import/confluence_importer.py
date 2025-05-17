@@ -1,18 +1,15 @@
 #!/usr/bin/env python3
 import json
 import requests
-import os
-import base64
 from datetime import datetime
-import time
 from bs4 import BeautifulSoup
 
 # Configuration
-CONFLUENCE_BASE_URL = "https://confluence.pashabank.az"
-PARENT_PAGE_ID = "322175497"  # ID of "Stackoverflow articles" page
-SPACE_KEY = "DE"
-PAT_FILE_PATH = "confluence-import/pat.txt"
-ARTICLES_FILE_PATH = "articles/stackoverflow_articles.json"
+CONFLUENCE_BASE_URL = "YOUR_CONFLUENCE_URL"  # e.g., "https://yourcompany.atlassian.net/wiki"
+PARENT_PAGE_ID = "YOUR_PARENT_PAGE_ID"  # ID of the parent page where articles will be created
+SPACE_KEY = "YOUR_SPACE_KEY"  # e.g., "TEAM" or "DOC"
+PAT_FILE_PATH = "pat.txt"
+ARTICLES_FILE_PATH = "../../articles/stackoverflow_articles.json"
 
 def read_personal_access_token(file_path):
     """Read the personal access token from file."""
