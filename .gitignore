@@ -8,4 +8,5 @@ question-images/
 *.png
 *.json
 *.md
+!README.md
 .DS_Store

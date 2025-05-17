@@ -28,7 +28,7 @@ def make_api_request(endpoint, params=None):
     params['filter'] = '!-NjR7YBAGtXRbJN1ECErSn*8.E3y04xrL'
 
     url = f"{BASE_URL}/{endpoint}"
-    response = requests.get(url, params=params, verify=False)
+    response = requests.get(url, params=params)
 
     # Check for rate limiting
     if response.status_code == 429:
